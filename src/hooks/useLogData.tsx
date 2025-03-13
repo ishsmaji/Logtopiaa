@@ -51,6 +51,8 @@ const DEFAULT_ALERT_THRESHOLDS = {
   timeWindowMinutes: 10,
 };
 
+const BASE_URL = import.meta.env.VITE_REACT_API_URL;
+
 const fetchLogs = async (filters: LogFilter): Promise<Log[]> => {
   const params = new URLSearchParams();
   
@@ -70,7 +72,7 @@ const fetchLogs = async (filters: LogFilter): Promise<Log[]> => {
     params.append('query', filters.query);
   }
   
-  const url = `http://localhost:4000/api/logs${params.toString() ? `?${params.toString()}` : ''}`;
+  const url = `${BASE_URL}/api/logs${params.toString() ? `?${params.toString()}` : ''}`;
   
   try {
     const response = await fetch(url);
@@ -99,7 +101,7 @@ const fetchLogs = async (filters: LogFilter): Promise<Log[]> => {
 
 const fetchStats = async (): Promise<LogStats> => {
   try {
-    const response = await fetch('http://localhost:4000/api/stats');
+    const response = await fetch(`${BASE_URL}/api/stats`);
     const data = await response.json();
     return data.success ? data.data : { total: 0, byLevel: { error: 0, warning: 0, info: 0 }, bySources: {} };
   } catch (error) {
