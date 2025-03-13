@@ -39,7 +39,7 @@ const { swaggerUi, swaggerSpec } = require('./config/swagger');
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 
 app.get("/", (req, res) => {
-  res.send(`<h1> This is HOMEPAGE baby</h1>`);
+  res.send(`<h1> This is HOMEPAGE </h1>`);
 });
 
 
