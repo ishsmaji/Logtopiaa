@@ -20,16 +20,10 @@ const Navbar = ({ activeAlerts = 0 }: NavbarProps) => {
     <header className="fixed top-0 left-0 w-full z-30 glass border-b border-white/5">
       <div className="container mx-auto px-4 h-16 flex items-center justify-between">
         <div className="flex items-center">
-          <NavLink to="/" className="text-xl font-semibold">
-            <img
-              src="https://res.cloudinary.com/decy8488i/image/upload/v1741850128/StudyNotion/rdjnwyin3v7qxydokyzc.jpg"
-              alt="Logo"
-              height={150}
-              width={180}
-            />
+          <NavLink to="/" className="text-2xl font-bold">
+            Logtopiaa
           </NavLink>
         </div>
-
         {!isMobile && (
           <nav className="flex space-x-1 absolute left-1/2 transform -translate-x-1/2">
             <NavLink
@@ -43,7 +37,6 @@ const Navbar = ({ activeAlerts = 0 }: NavbarProps) => {
             >
               Dashboard
             </NavLink>
-
             <NavLink
               to="/logs"
               className={({ isActive }) =>
@@ -55,7 +48,6 @@ const Navbar = ({ activeAlerts = 0 }: NavbarProps) => {
             >
               Logs
             </NavLink>
-
             <NavLink
               to="/statistics"
               className={({ isActive }) =>
@@ -69,12 +61,9 @@ const Navbar = ({ activeAlerts = 0 }: NavbarProps) => {
             </NavLink>
           </nav>
         )}
-
         <div className="flex items-center space-x-2">
           <ThemeToggle />
-
           <NotificationDropdown />
-
           <Button
             variant="ghost"
             size="icon"
@@ -83,7 +72,6 @@ const Navbar = ({ activeAlerts = 0 }: NavbarProps) => {
           >
             <Settings className="h-5 w-5" />
           </Button>
-
           {isMobile && (
             <Button
               variant="ghost"
@@ -95,7 +83,6 @@ const Navbar = ({ activeAlerts = 0 }: NavbarProps) => {
           )}
         </div>
       </div>
-
       <LogSettingsModal open={settingsOpen} onOpenChange={setSettingsOpen} />
     </header>
   );
